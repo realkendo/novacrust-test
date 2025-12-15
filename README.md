@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Crypto Checkout Component
 
-## Getting Started
+This is a responsive, production-ready implementation of a Crypto Checkout experience using Next.js 15 and TailwindCSS.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- **Responsive Design**: Works seamlessly on desktop and mobile.
+- **Crypto-to-Cash Flow**: UI for converting crypto to fiat currency.
+- **Custom Dropdowns**: built-in custom token and wallet selectors with icons.
+- **Interactive States**: Hover effects, transitions, and focus states for better UX.
+- **Clean Codebase**: Component-based architecture with TypeScript.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1.  **Clone the repository** (if applicable) or download the source code.
+2.  **Install dependencies**:
+    ```bash
+    npm install
+    ```
+3.  **Run the development server**:
+    ```bash
+    npm run dev
+    ```
+4.  Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Tech Stack
 
-## Learn More
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: TailwindCSS
+- **Language**: TypeScript
+- **Icons**: Custom SVGs
 
-To learn more about Next.js, take a look at the following resources:
+## Assumptions & Trade-offs
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- **Icons**: Custom SVG icons were used instead of an icon library to strictly match the design without external dependencies.
+- **State Management**: Local state `useState` is used for managing form inputs and dropdown visibility. For a larger app, I would use a more robust form library (like `react-hook-form`) or global state (like `zustand`).
+- **Data**: Mock data is used for wallets and tokens. In a real application, this would likely come from an API or a Web3 provider.
+- **Modal Behavior**: The component is currently rendered directly on the page layout as requested ("load in the home page"). In a real app, this would likely be a proper Modal using a Portal or a Dialog primitive (like Radix UI).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/page.tsx`: Main entry point rendering the checkout modal.
+- `components/CryptoCheckoutModal.tsx`: The core component containing the checkout logic and UI.
